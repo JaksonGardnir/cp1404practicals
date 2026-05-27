@@ -1,16 +1,27 @@
 """
 CP1404/CP5632 - Practical
-Broken program to determine score status
+Program to determine score status
 """
 
-score = float(input("Enter score: "))
-if score > 100:
-    print("Invalid score")
-elif score >= 90:
-    print("Excellent")
-elif score >= 50:
-    print("Passable")
-elif score >= 0:
-    print("Bad")
-else:
-    print("Invalid score")
+
+def main():
+    score = float(input("Enter score: "))
+    score_status = assess_score(score)
+    print(score_status)
+
+
+def assess_score(score: float):
+    if score > 100:
+        score_status = "Invalid score"
+    elif score >= 90:
+        score_status = "Excellent"
+    elif score >= 50:
+        score_status = "Passable"
+    elif score >= 0:
+        score_status = "Bad"
+    else:
+        score_status = "Invalid score"
+    return score_status
+
+
+main()
