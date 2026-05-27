@@ -9,6 +9,8 @@ def main():
     score = float(input("Enter score: "))
     score_status = assess_score(score)
     print(f"User score {score} is {score_status}")
+    if score_status == "Excellent":
+        print("You get a prize!")
     random_score = random.randint(0, 100)
     random_score_status = assess_score(random_score)
     print(f"Random: {random_score} = {random_score_status}")
