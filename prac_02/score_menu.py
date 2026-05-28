@@ -22,7 +22,7 @@ def main():
             score_status = assess_score(valid_score)
             print(f"User score {valid_score} is {score_status}.")
         elif choice == "S":
-            print_asterisks(int(valid_score))  # int(valid_score) takes the floor of the float and converts it to int.
+            print_asterisks(int(valid_score))
         else:
             print("Invalid choice.")
         print(MENU)
@@ -40,6 +40,7 @@ def get_valid_score() -> float:
 
 
 def assess_score(score: float) -> str:
+    """Return a score status based on input score."""
     if score > 100:
         score_status = "Invalid score"
     elif score >= 90:
@@ -54,7 +55,7 @@ def assess_score(score: float) -> str:
 
 
 def print_asterisks(amount: int):
-    """Print a row of *'s of length amount"""
+    """Print a row of *'s of length amount."""
     print("*" * amount)
 
 
