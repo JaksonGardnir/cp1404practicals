@@ -4,39 +4,39 @@ Program that utilises a menu to perform actions related to the users score.
 import random
 
 MENU = """
-1. Re-enter name
-2. Receive greeting
-3. Receive secret name
-4. Quit
+(G)et a valid score.
+(P)rint result.
+(S)how stars.
+(Q)uit.
 """
 
 
 def main():
-    """Create a menu."""
-    name = get_name()
+    """Generate a menu to perform actions related to the users score."""
+    valid_score = get_valid_score()
     print(MENU)
-    choice = str(input(">>> "))
-    while choice != "4":
-        if choice == "1":
-            name = get_name()
-        elif choice == "2":
-            print_greeting(name)
-        elif choice == "3":
-            print_secret_name(name)
+    choice = input(">>> ").upper()
+    while choice != "Q":
+        if choice == "G":
+            valid_score = get_valid_score()
+        elif choice == "P":
+            pass
+        elif choice == "S":
+            pass
         else:
             print("Invalid choice.")
         print(MENU)
-        choice = str(input(">>> "))
+        choice = input(">>> ").upper()
     print("Quitting program.")
 
 
-def get_name():
-    """Get the users name."""
-    name = input("Input your name: ")
-    while name == "":
-        print("Invalid name.")
-        name = input("Input your name: ")
-    return name
+def get_valid_score() -> float:
+    """Get a valid score from the user."""
+    valid_score = float(input("Input score: "))
+    while valid_score < 0 or valid_score > 100:
+        print("Invalid score (must be between 0 and 100 inclusive).")
+        valid_score = float(input("Input score: "))
+    return valid_score
 
 
 def print_greeting(name):
