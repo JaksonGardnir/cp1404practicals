@@ -22,7 +22,7 @@ def main():
             score_status = assess_score(valid_score)
             print(f"User score {valid_score} is {score_status}.")
         elif choice == "S":
-            pass
+            print_asterisks(int(valid_score))  # int(valid_score) takes the floor of the float and converts it to int.
         else:
             print("Invalid choice.")
         print(MENU)
@@ -53,25 +53,9 @@ def assess_score(score: float) -> str:
     return score_status
 
 
-def print_greeting(name):
-    """Print a greeting to the user that includes their name."""
-    length_of_greeting = 11 + len(name)  # len() gives the number of characters in the string.
-    print_line(length_of_greeting)
-    print(f"Greetings {name}!")
-    print_line(length_of_greeting)
-
-
-def print_secret_name(name):
-    """Print a secret name according to the name input by the user."""
-    randomised_name = list(name)
-    random.shuffle(randomised_name)
-    randomised_name = "".join(randomised_name)
-    print(f"Your secret name is {randomised_name}\n")
-
-
-def print_line(line_length):
-    """Print a line of -'s of length line_length."""
-    print("-" * line_length)
+def print_asterisks(amount: int):
+    """Print a row of *'s of length amount"""
+    print("*" * amount)
 
 
 main()
